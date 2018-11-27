@@ -30,6 +30,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -49,11 +50,16 @@ import java.util.Date;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
+
 public class MainActivity extends AppCompatActivity {
 
     // logging
     private final String TAG = "MainActivity";
 
+    ////////////////////////////////////////14112018
+    private Button button;
+    /////////////////////////////////////////
 
     // background manager
     private PendingIntent recurringLl24 = null;
@@ -114,6 +120,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ////////////////////////////////////////////////////////////////////14112018
+        button = (Button) findViewById(R.id.bt1);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //显示方式声明Intent，直接启动SecondActivity
+              // Intent intent = new Intent(MainActivity.this, Page2Activity.class);
+              //  startActivity(intent);
+               // Intent intent = new Intent(MainActivity.this, Page2Activity.class);
+
+                //yinshi intent
+               // Intent intent = new Intent("com.example.activitytest.ACTION_START");
+                Intent intent = new Intent(MainActivity.this, Page2Activity.class);
+                EditText editText = (EditText) findViewById(R.id.familyName);
+                EditText editText2 = (EditText) findViewById(R.id.locationName);
+                String family = editText.getText().toString();
+                String location= editText2.getText().toString();
+                intent.putExtra("family", family);
+                intent.putExtra("location", location);
+                startActivity(intent);
+
+            }
+        });
+        //////////////////////////////////////////////////////////////////
+
         // check permissions
         int permissionCheck = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION);
         if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
@@ -142,8 +174,10 @@ public class MainActivity extends AppCompatActivity {
         textView.setAdapter(adapter);
 
 
-        ToggleButton toggleButtonTracking = (ToggleButton) findViewById(R.id.toggleScanType);
-        toggleButtonTracking.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+       // Button ButtonLearning = (Button) findViewById(R.id.learningButton);
+        ToggleButton toggleButton2 = (ToggleButton) findViewById(R.id.toggleButton2);
+
+       toggleButton2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 TextView rssi_msg = (TextView) findViewById(R.id.textOutput);
@@ -159,10 +193,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
         ToggleButton toggleButton = (ToggleButton) findViewById(R.id.toggleButton);
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                //////////////////////////////////////ckeced means is scaning
                 if (isChecked) {
                     TextView rssi_msg = (TextView) findViewById(R.id.textOutput);
                     String familyName = ((EditText) findViewById(R.id.familyName)).getText().toString().toLowerCase();
@@ -192,8 +228,13 @@ public class MainActivity extends AppCompatActivity {
                     boolean allowGPS = ((CheckBox) findViewById(R.id.allowGPS)).isChecked();
                     Log.d(TAG,"allowGPS is checked: "+allowGPS);
                     String locationName = ((EditText) findViewById(R.id.locationName)).getText().toString().toLowerCase();
-
-                    CompoundButton trackingButton = (CompoundButton) findViewById(R.id.toggleScanType);
+                   /* if (locationName.equals("")) {
+                        rssi_msg.setText("location name cannot be empty");
+                        buttonView.toggle();
+                        return;
+                    }*/
+                    //////////////////////////////////////////////
+                   CompoundButton trackingButton = (CompoundButton) findViewById(R.id.toggleButton2);
                     if (trackingButton.isChecked() == false) {
                         locationName = "";
                     } else {
@@ -203,6 +244,8 @@ public class MainActivity extends AppCompatActivity {
                             return;
                         }
                     }
+/////////////////////////////////////////////////////////////////////////////////////////
+
 
                     SharedPreferences sharedPref = MainActivity.this.getPreferences(Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPref.edit();
@@ -222,12 +265,15 @@ public class MainActivity extends AppCompatActivity {
                     ll24.putExtra("serverAddress", serverAddress);
                     ll24.putExtra("locationName", locationName);
                     ll24.putExtra("allowGPS",allowGPS);
+                    //
                     recurringLl24 = PendingIntent.getBroadcast(MainActivity.this, 0, ll24, PendingIntent.FLAG_CANCEL_CURRENT);
                     alarms = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
                     alarms.setRepeating(AlarmManager.RTC_WAKEUP, SystemClock.currentThreadTimeMillis(), 60000, recurringLl24);
+                    //
                     timer = new Timer();
                     oneSecondTimer = new RemindTask();
                     timer.scheduleAtFixedRate(oneSecondTimer, 1000, 1000);
+                    ///////////////////////////////////////////////////////////
                     connectWebSocket();
 
                     String scanningMessage = "Scanning for " + familyName + "/" + deviceName;
@@ -249,10 +295,10 @@ public class MainActivity extends AppCompatActivity {
                             (android.app.NotificationManager) MainActivity.this.getSystemService(Context.NOTIFICATION_SERVICE);
                     notificationManager.notify(0 /* ID of notification */, notificationBuilder.build());
 
-
+                    /*
                     final TextView myClickableUrl = (TextView) findViewById(R.id.textInstructions);
                     myClickableUrl.setText("See your results in realtime: " + serverAddress + "/view/location/" + familyName + "/" + deviceName);
-                    Linkify.addLinks(myClickableUrl, Linkify.WEB_URLS);
+                    Linkify.addLinks(myClickableUrl, Linkify.WEB_URLS);*/
                 } else {
                     TextView rssi_msg = (TextView) findViewById(R.id.textOutput);
                     rssi_msg.setText("not running");
@@ -387,7 +433,29 @@ public class MainActivity extends AppCompatActivity {
         mWebSocketClient.connect();
     }
 
+///////////////////////////
+public void sendMessage1(View view) {
 
+    Intent intent = new Intent(this,Page2Activity.class);
+    EditText editText = (EditText) findViewById(R.id.familyName);
+    String message = editText.getText().toString();
+    intent.putExtra("family", message);
+    startActivity(intent);
+
+    // Do something in response to button
+}
+    public void sendMessage2(View view) {
+
+        Intent intent = new Intent(this,Page2Activity.class);
+        EditText editText = (EditText) findViewById(R.id.locationName);
+        String message = editText.getText().toString();
+        intent.putExtra("family", message);
+        startActivity(intent);
+
+        // Do something in response to button
+    }
+   // public final static String EXTRA_MESSAGE = "com.example.ailyan.find3-android-scanner.MESSAGE";
+    /////////////////////////////
 
 
 }

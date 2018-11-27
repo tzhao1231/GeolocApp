@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.internalpositioning.find3.find3app">
+
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
@@ -26,8 +27,7 @@
 
         <service
             android:name=".ScanService"
-            android:enabled="true">
-        </service>
+            android:enabled="true" />
 
         <receiver
             android:name=".AlarmReceiverLife"
@@ -40,6 +40,26 @@
             </intent-filter>
         </receiver>
 
+        <activity
+            android:name=".Page2Activity"
+            android:label="@string/title_activity_page2"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.internalpositioning.find3.find3app.MainActivity" />
+        </activity>
+        <activity
+            android:name=".PageaddActivity"
+            android:label="@string/title_activity_pageadd"
+            android:parentActivityName=".Page2Activity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.internalpositioning.find3.find3app.Page2Activity" />
+        </activity>
     </application>
 
 </manifest>
