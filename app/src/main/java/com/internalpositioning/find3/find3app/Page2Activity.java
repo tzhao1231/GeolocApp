@@ -125,7 +125,7 @@ public class Page2Activity extends AppCompatActivity {
 
             if (finalResponse.getString("message").equals("done"))
                 Toast.makeText(getApplicationContext(), "already clear", Toast.LENGTH_SHORT).show();
-            
+
 
         } catch (InterruptedException e) {
             e.printStackTrace();
