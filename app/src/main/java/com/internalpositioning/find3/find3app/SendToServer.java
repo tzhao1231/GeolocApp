@@ -56,19 +56,14 @@ private String post() throws Exception {
         + URLEncoder.encode(entry.getValue(), "UTF-8"));
         sj = sj.substring(1);
         }
-
         byte[] out = sj.getBytes(StandardCharsets.UTF_8);
-
         Log.i(TAG, sj);
-
         OutputStream os = http.getOutputStream();
-        BufferedWriter writer = new BufferedWriter(
-        new OutputStreamWriter(os, "UTF-8"));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
         writer.write(sj);
         writer.flush();
         writer.close();
         os.close();
-
 
         http.connect();
 
@@ -76,19 +71,17 @@ private String post() throws Exception {
         int HttpResult = http.getResponseCode();
         Log.i(TAG, "response code is "+HttpResult);
         if (HttpResult == HttpsURLConnection.HTTP_OK) {
-        BufferedReader br = new BufferedReader(
-        new InputStreamReader(http.getInputStream(), "utf-8"));
+        BufferedReader br = new BufferedReader(new InputStreamReader(http.getInputStream(), "utf-8"));
         String line;
         while ((line = br.readLine()) != null) {
         sb += line;
         }
         br.close();
-        Log.i(TAG, sb);
+        Log.i("phpreturn", sb);
         return sb;
         } else {
         Log.i(TAG, (http.getResponseMessage()));
         }
-
         }catch (Exception e){
         Log.i(TAG, e.toString());
         } finally {

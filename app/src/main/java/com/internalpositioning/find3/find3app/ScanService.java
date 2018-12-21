@@ -16,8 +16,6 @@ import android.net.wifi.ScanResult;
 import android.net.wifi.WifiManager;
 import android.os.IBinder;
 import android.util.Log;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.NetworkResponse;
@@ -39,7 +37,7 @@ import java.util.List;
 /**
  * Created by zacks on 3/2/2018.
  */
-
+//didn't make any change for this file -Teng
 public class ScanService extends Service {
     // logging
     private final String TAG = "ScanService";

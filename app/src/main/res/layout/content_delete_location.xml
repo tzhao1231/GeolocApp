@@ -5,37 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Page2Activity"
-    tools:showIn="@layout/activity_page2">
+    tools:context=".DeleteLocationActivity"
+    tools:showIn="@layout/activity_delete_location">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
         <Button
-            android:id="@+id/bt1"
+            android:id="@+id/btdelete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add"/>
-        <Button
-            android:id="@+id/bt2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/bt1"
-            android:layout_alignRight="@id/bt1"
-            android:layout_alignLeft="@id/bt1"
             android:text="Delete"/>
+
         <Button
-            android:id="@+id/bt3"
+            android:id="@+id/btreset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/bt2"
-            android:layout_alignRight="@id/bt2"
-            android:layout_alignLeft="@id/bt2"
             android:text="Reset"/>
 
 
-
-    </RelativeLayout>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

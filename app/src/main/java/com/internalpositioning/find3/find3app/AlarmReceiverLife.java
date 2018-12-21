@@ -10,7 +10,7 @@ import android.util.Log;
 /**
  * Created by zacks on 3/2/2018.
  */
-
+// didn't make any change for this file -Teng
 public class AlarmReceiverLife extends BroadcastReceiver {
     private static PowerManager.WakeLock wakeLock;
 

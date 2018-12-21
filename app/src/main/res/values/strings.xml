@@ -1,5 +1,17 @@
 <resources>
-    <string name="app_name">FIND3 Scanner</string>
-    <string name="title_activity_page2">Page2Activity</string>
-    <string name="title_activity_pageadd">PageaddActivity</string>
+    <string name="app_name">Indoor Positioning</string>
+    <string name="title_activity_page2">Delete</string>
+    <string name="title_activity_pageadd">Adddistance</string>
+    <string name="SetServerFamily">If you haven\'t enter the server address and the residence name, please do it at first</string>
+    <string name="EnterServer">Please enter the server url</string>
+    <string name="EnterResidence">Please enter the residence</string>
+    <string name="EnterLocation">Please enter a correct location</string>
+    <string name="EnterDevice">Please enter the device</string>
+    <string name="clearLocs">Are you sure to clear all the locations</string>
+    <string name="done">done</string>
+    <string name="notdone">dot done</string>
+    <string name="settings">Settings</string>
+    <string name="send">Send</string>
+    <string name="addanother">Addanother</string>
+    <string name="enterdis">Please enter the distance</string>
 </resources>

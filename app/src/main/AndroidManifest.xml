@@ -41,7 +41,7 @@
         </receiver>
 
         <activity
-            android:name=".Page2Activity"
+            android:name=".DeleteLocationActivity"
             android:label="@string/title_activity_page2"
             android:parentActivityName=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
@@ -53,12 +53,12 @@
         <activity
             android:name=".PageaddActivity"
             android:label="@string/title_activity_pageadd"
-            android:parentActivityName=".Page2Activity"
+            android:parentActivityName=".DeleteLocationActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.internalpositioning.find3.find3app.Page2Activity" />
+                android:value="com.internalpositioning.find3.find3app.DeleteLocationActivity" />
         </activity>
     </application>
 

@@ -1,129 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:scrollbars="none"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".PageaddActivity"
     tools:showIn="@layout/activity_pageadd">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/nb1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="loc1"
-        android:textSize="20sp"/>
-    <EditText
-        android:id="@+id/nb1loc1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/nb1"
-        android:layout_alignBottom ="@id/nb1"
-        android:hint="enter the loc near"
-        android:singleLine="true"/>
-    <TextView
-        android:id="@+id/dis1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/nb1"
-        android:layout_alignRight="@id/nb1"
-        android:layout_alignLeft="@id/nb1"
-        android:gravity="center"
-        android:text="dis1"
-        android:textSize="20sp"/>
-    <EditText
-        android:id="@+id/nb1dis1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/dis1"
-        android:layout_alignBottom ="@id/dis1"
-        android:hint="enter the dis"
-        android:singleLine="true"/>
+            <LinearLayout
+                android:id="@+id/list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:isScrollContainer="true"/>
 
-
-    <TextView
-        android:id="@+id/nb2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dis1"
-        android:layout_alignRight="@id/dis1"
-        android:layout_alignLeft="@id/dis1"
-        android:text="loc2"
-        android:textSize="20sp"/>
-    <EditText
-        android:id="@+id/nb2loc2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/nb2"
-        android:layout_alignBottom ="@id/nb2"
-        android:hint="enter the loc2 near"
-        android:singleLine="true"/>
-    <TextView
-        android:id="@+id/dis2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/nb2"
-        android:layout_alignRight="@id/nb2"
-        android:layout_alignLeft="@id/nb2"
-        android:gravity="center"
-        android:text="dis2"
-        android:textSize="20sp"/>
-    <EditText
-        android:id="@+id/nb2dis2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/dis2"
-        android:layout_alignBottom ="@id/dis2"
-        android:hint="enter the dis2"
-        android:singleLine="true"/>
-
-    <TextView
-        android:id="@+id/nb3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dis2"
-        android:layout_alignRight="@id/dis2"
-        android:layout_alignLeft="@id/dis2"
-        android:text="loc3"
-        android:textSize="20sp"/>
-    <EditText
-        android:id="@+id/nb3loc3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/nb3"
-        android:layout_alignBottom ="@id/nb3"
-        android:hint="enter the loc3 near"
-        android:singleLine="true"/>
-    <TextView
-        android:id="@+id/dis3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/nb3"
-        android:layout_alignRight="@id/nb3"
-        android:layout_alignLeft="@id/nb3"
-        android:gravity="center"
-        android:text="dis3"
-        android:textSize="20sp"/>
-    <EditText
-        android:id="@+id/nb3dis3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/dis3"
-        android:layout_alignBottom ="@id/dis3"
-        android:hint="enter the dis3"
-        android:singleLine="true"/>
-
-    <Button
-        android:id="@+id/btadd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dis3"
-        android:text="send"/>
+             <Button
+                android:id="@+id/buttonSend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/list_view"
+                android:text="@string/send"
+               />
+        </RelativeLayout>
+    </ScrollView>
 
 
 
 
 
 
-</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

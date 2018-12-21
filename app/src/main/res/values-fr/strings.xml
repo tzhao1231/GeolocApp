@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Géoloc</string>
+    <string name="title_activity_page2">Supprimer</string>
+    <string name="title_activity_pageadd">Ajouterdis</string>
+    <string name="SetServerFamily">Veuillez entrez address serveur et Nom de Résidence si vous n\'avez encore fait </string>
+    <string name="EnterServer">Veuillez entrez l\'url du serveur</string>
+    <string name="EnterResidence">Veuillez entrez Nom de Résidence</string>
+    <string name="EnterLocation">Veuillez entrez une location correct</string>
+    <string name="EnterDevice">Veuillez entrez device</string>
+    <string name="clearLocs">Souhaitez vous supprimer tous les localisations</string>
+    <string name="done">fini</string>
+    <string name="notdone">pas fini</string>
+    <string name="settings">Paramètres</string>
+    <string name="send">Envoyer</string>
+    <string name="addanother">Ajouter un autre</string>
+    <string name="enterdis">Veuillez entrer la distance</string>
+</resources>
